@@ -1,0 +1,64 @@
+body{
+  font-family: 'Bilbo Swash Caps', cursive;
+  font-size: 32px;
+  font-weight: bold;
+  margin: 0 auto;
+  text-align: center;
+  color: black;
+  background: rgba(50,80,20,0.3);
+  
+}
+
+#container{
+  width: 90%;
+  padding: 2%;
+  height: auto;
+  margin: 30px auto;
+  border-radius: 25px;
+  box-shadow: -5px 5px 20px rgba(100,100,100,.8);
+  background: url("https://dl.dropboxusercontent.com/u/49268757/textured_paper.png") ;
+}
+
+h1{
+/*  font-weight: bold;*/
+  font-size: larger;
+  /*color: #07a;*/
+  /*text-shadow: -5px 5px 8px rgba(100,100,100,.9);*/
+}
+
+#city{
+  margin-top:50px;  
+}
+
+#temp{
+  width: 60%;
+  padding: 30px;
+  height: auto;
+  margin: 0px auto;
+  margin-top:30px;
+  margin-bottom:30px;
+  font-size: 250%;  
+  
+  background: rgba(0,100,0,0.3);
+  border-radius: 25px;
+  box-shadow: -5px 5px 20px rgba(100,100,100,.8);
+}
+
+ul li{
+  list-style-type: none;
+  display:inline;
+  margin: 15px;
+}
+
+.smaller{
+  font-weight: normal;
+  font-size: smaller;
+}
+
+footer{
+  font-size: 50%;
+  font-weight: normal;
+  position: relative;
+  padding-top:30px;
+  bottom:0px;
+}

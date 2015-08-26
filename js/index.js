@@ -38,12 +38,13 @@ function getWeather(lat, lon){
      );
 
      $(".temp").html(Math.round(weather.main.temp));
+     // temp r >25 g >10 <25  b <10 background: rgba(0,100,0,0.3);
      $(".tempIcon").html(" <i class='wi wi-celsius'></i>"); //wi-fahrenheit
      $(".weatherIcon").html("<img src='http://openweathermap.org/img/w/" + weather.weather[0].icon + ".png'>");
      $(".weather").html(weather.weather[0].description);
      $(".humidity").html(weather.main.humidity);
      if (weather.wind.speed !== undefined){
-       $(".wind").html(weather.wind.speed+" km/h");
+       $(".wind").html(weather.wind.speed);
      } else{
        $(".wind").html(weather.wind.speed+" Unknown");
      }

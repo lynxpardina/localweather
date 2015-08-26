@@ -2,6 +2,21 @@ $(document).ready(function () {
 
 getLocation();
 
+$("#temp").click(function(){
+  var t = $(".temp").html();
+  
+  if (localStorage["userDegrees"] === "F"){
+     localStorage["userDegrees"]="C";
+     $(".temp").html(Math.round((t-32)/1.8)); // conversion F to C
+     $(".tempIcon").html(" <i class='wi wi-celsius'></i>"); 
+  } else{
+    localStorage["userDegrees"]="F";
+    $(".temp").html(Math.round(t*1.8+32)); // conversion C to F    
+    $(".tempIcon").html(" <i class='wi wi-fahrenheit'></i>"); 
+  }
+})
+
+
 function getLocation(){
   //using ip-api.com (at least in Spain, returns city)
   $.get("http://ip-api.com/json", function (location){
@@ -21,25 +36,35 @@ function getLocation(){
   },"jsonp"); //end $.get
 }
 
+
 function getWeather(lat, lon){ 
   //using openweathermap.org
-  
   var url= "http://api.openweathermap.org/data/2.5/weather?lat="+lat+"&lon="+lon+"&units=metric";
-  console.log (url);
   $.get(url, function(weather){
+
      console.log(weather);
 
-     $(".dos").html("temp: "+weather.main.temp+
-                    "<br>weather: "+weather.weather[0].description+
-                    "<br>weatherIcon: "+weather.weather[0].icon+
-                    "<br>humidity: "+weather.main.humidity+
-                    "<br>Wind: "+ weather.wind.speed+
-                    "<br>Wind direction: "+ weather.wind.deg
-     );
+     var userDegrees = localStorage["userDegrees"] || "C";
+    
+     if (Math.round(weather.main.temp)>25){
+        $("#temp").css("background", "rgba(100,0,0,0.5)");
+        $("#container").css("background-image", "url('https://dl.dropboxusercontent.com/u/49268757/1024_hot.jpg')");
+     }else if (Math.round(weather.main.temp)<10){
+        $("#temp").css("background", "rgba(0,0,100,0.5)");
+        $("#container").css("background-image", "url('https://dl.dropboxusercontent.com/u/49268757/1024_cold.jpg')");
+     }else{
+        $("#temp").css("background", "rgba(0,100,0,0.5)");
+        $("#container").css("background-image", 'url("https://dl.dropboxusercontent.com/u/49268757/1024_normal.jpg")');
+     }
 
-     $(".temp").html(Math.round(weather.main.temp));
-     // temp r >25 g >10 <25  b <10 background: rgba(0,100,0,0.3);
-     $(".tempIcon").html(" <i class='wi wi-celsius'></i>"); //wi-fahrenheit
+     if (userDegrees==="C"){
+       $(".temp").html(Math.round(weather.main.temp));
+       $(".tempIcon").html(" <i class='wi wi-celsius'></i>"); 
+     }else{
+       $(".temp").html(Math.round(weather.main.temp*1.8+32));
+       $(".tempIcon").html(" <i class='wi wi-fahrenheit'></i>"); 
+     }
+
      $(".weatherIcon").html("<img src='http://openweathermap.org/img/w/" + weather.weather[0].icon + ".png'>");
      $(".weather").html(weather.weather[0].description);
      $(".humidity").html(weather.main.humidity);
@@ -60,7 +85,6 @@ function windDirection(deg) {
       return rose[direction];
     }else return " ";
 }
-
 
 
 
@@ -94,6 +118,8 @@ returns:
 */
 
 /*
+// api ipinfo.io
+
   $.get("http://ipinfo.io", function(response) {
     //doesn't return city for my location in Spain, nor the correct lat, lon
   $('.uno').html("ip: "+response.ip +

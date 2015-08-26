@@ -2,13 +2,15 @@
 <html >
 <head>
     <meta charset="utf-8">
+   <!--
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
+    <meta name="viewport" content="width=device-width, initial-scale=2">
+-->
     <title>localWeather</title>
-   
+   <!--
     <link rel='stylesheet prefetch' href='http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css'>
-
+-->
+    <link href='http://fonts.googleapis.com/css?family=Merriweather+Sans' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/weather-icons/2.0.1/css/weather-icons.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/weather-icons/2.0.1/css/weather-icons-wind.min.css">
     <link rel="stylesheet" href="css/style.css">
@@ -28,19 +30,39 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body> 
+
+<!--Local Weather. A FreeCodeCamp.com Zipline task.
+
+Description: 
+  The app uses two api queries to gather local information, and display the local weather conditions.
+
+  Clicking on temperature changes between Celsius and Fahrenheit, saving in localstorage the choosen value for later reference.
+  
+  Background images and background color of temperature's rectangle changes depending of the value of it <10  blue tone, >=10 & <25 green tone, and >25 red tone
+  
+Credits:
+ Code and styling by José Pérez Mateos (@lynxpardina)
+
+Resources:  
+  jQuery, http://jquery.com/
+  Weather Icons, https://erikflowers.github.io/weather-icons/
+  Location api, http://ip-api.com
+  Weather api, http://api.openweathermap.org
+  Font source, https://www.google.com/fonts
+
+-->
+
   <div  id="container">
   <header>
-    <h1>Local Weather</h1>
+    <h5>Local Weather</h5>
   </header>
-
+  
   <section id="city">
     <p class="city"></p>
   </section>
 
   <section id="temp">
-    <p>
       <span class="temp"></span><span class="tempIcon"></span>
-    </p>
   </section>
 
   <section id="weather">
@@ -57,10 +79,9 @@
   </section>
 <br>
 <br>
- <!-- <p class="uno"></p>
-   <p class="dos"></p>-->
+
 <footer>
-  <p>double click on temperature to change between ºC and ºF</p>  
+  <p>Click on temperature to change between ºC and ºF</p>  
 </footer>
 </div>
 </body>

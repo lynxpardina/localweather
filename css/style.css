@@ -1,6 +1,10 @@
+@import url(https://fonts.googleapis.com/css?family=Merriweather+Sans);
+@import url(https://cdnjs.cloudflare.com/ajax/libs/weather-icons/2.0.1/css/weather-icons.min.css);
+@import url(https://cdnjs.cloudflare.com/ajax/libs/weather-icons/2.0.1/css/weather-icons-wind.min.css);
+
 body{
   font-family: 'Merriweather Sans', sans-serif;
-  font-size: 30px;
+  font-size: 26px;
   font-weight: bold;
   margin: 0 auto;
   text-align: center;
@@ -16,12 +20,14 @@ body{
   height: auto;
   margin: 30px auto;
   border-radius: 25px;
-  box-shadow: -5px 5px 20px rgba(100,100,100,.8);
+  /*box-shadow: -5px 5px 20px rgba(100,100,100,.8);*/
   background-image: url("https://dl.dropboxusercontent.com/u/49268757/textured_paper.png") ;
-  background-position: fixed center;
   background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
   background-size: cover;
 }
+
 
 #city{
   padding-top:30px;  
@@ -35,18 +41,31 @@ section{
   height: auto;
   margin-left: auto;
   margin-right: auto;
-  font-size: 400%;
+  font-size: 300%;
   
   background: rgba(0,100,0,0.3);
   border-radius: 25px;
-  box-shadow: -5px 5px 20px rgba(100,100,100,.8);
+  /*box-shadow: -5px 5px 20px rgba(100,100,100,.8);*/
+}
+
+#innerContainer{
+  width: 90%;
+  padding: 5px;
+  height: auto;
+  margin-left: auto;
+  margin-right: auto;
+  
+  background: rgba(30,30,30,0.3);
+  border-radius: 25px;
+  /*box-shadow: -5px 5px 20px rgba(0,0,0,.8);*/
 }
 
 ul li{
   list-style-type: none;
-  display:inline;
+  display:inline-block;
   margin: 20px;
 }
+
 
 .smaller{
   font-weight: normal;

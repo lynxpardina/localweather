@@ -11,7 +11,7 @@ body{
   color: #ff9;
   text-shadow: -3px 3px 8px rgba(0,0,0,.9);
   background: rgba(50,50,40,0.3);
-  
+
 }
 
 #container{
@@ -30,7 +30,7 @@ body{
 
 
 #city{
-  padding-top:30px;  
+  padding-top:30px;
 }
 section{
   margin-top:5px;
@@ -42,7 +42,7 @@ section{
   margin-left: auto;
   margin-right: auto;
   font-size: 300%;
-  
+
   background: rgba(0,100,0,0.3);
   border-radius: 25px;
   /*box-shadow: -5px 5px 20px rgba(100,100,100,.8);*/
@@ -54,7 +54,7 @@ section{
   height: auto;
   margin-left: auto;
   margin-right: auto;
-  
+
   background: rgba(30,30,30,0.3);
   border-radius: 25px;
   /*box-shadow: -5px 5px 20px rgba(0,0,0,.8);*/

@@ -49,19 +49,20 @@ function getLocationByApi(){
     //using ip-api.com (at least in Spain, returns city)
     $.get("http://ip-api.com/json", function (location){
 
-    lat=location.lat;
-    lon=location.lon;
-    if (location.city !== undefined){
-      city=location.city;
-    }
-    getWeather(lat, lon);
+      lat=location.lat;
+      lon=location.lon;
+      if (location.city !== undefined){
+        city=location.city;
+      }
+      getWeather(lat, lon);
 
-    },"jsonp"); //end $.get
+    },"jsonp");
 }
 
 function getWeather(lat, lon){
   //using openweathermap.org
   var url= "http://api.openweathermap.org/data/2.5/weather?lat="+lat+"&lon="+lon+"&units=metric&appid=23488743c00ea56f5e6b5c302fa3cdc7";
+
   $.get(url, function(weather){
 
      console.log(weather);
@@ -76,8 +77,7 @@ function getWeather(lat, lon){
        $(".city").html("Latitude: "+lat+" Longitude: "+ lon);
      }
 
-     var actualTemperature=Math.round(weather.main.temp);
-
+     var actualTemperature=Math.round(weather.main.temp||0);
      if (actualTemperature>25){
        var red=Math.round((actualTemperature-25)*5.7+50);
        if (red > 255) red=255;
@@ -89,16 +89,16 @@ function getWeather(lat, lon){
         $("#container").css("background-image", "url('https://dl.dropboxusercontent.com/u/49268757/1024_cold.jpg')");
      }else{
        var green=Math.round((actualTemperature-10)*13.333+50);
-       console.log(green);
+      //  console.log(green);
         $("#temp").css("background", "rgba(0,"+green+",0,0.5)");
         $("#container").css("background-image", 'url("https://dl.dropboxusercontent.com/u/49268757/1024_normal.jpg")');
      }
 
      if (userDegrees==="C"){
-       $(".temp").html(actualTemperature);
+       $(".temp").text(actualTemperature);
        $(".tempIcon").html(" <i class='wi wi-celsius'></i>");
      }else{
-       $(".temp").html(Math.round(weather.main.temp*1.8+32));
+       $(".temp").text(Math.round((weather.main.temp||0)*1.8+32));
        $(".tempIcon").html(" <i class='wi wi-fahrenheit'></i>");
      }
 
